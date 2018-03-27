@@ -15,7 +15,7 @@ services:
       VERIFY_MIGRATED_TEST_DATA: "TRUE"
 
   drone-management-adhoc-apiclientconsole:
-    image: $${REPO}drone.management.adhoc.apiclientconsole
+    image: ${REPO}drone.management.adhoc.apiclientconsole
     build:
       context: .
       dockerfile: Drone.Management.AdHoc/Drone.Management.AdHoc.APIClientConsole/Dockerfile

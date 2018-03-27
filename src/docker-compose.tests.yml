@@ -4,49 +4,49 @@ services:
 
 # ERROR: Full solution test is not working properly with current dotnet image build.
 #  drone-management-tests:
-#    image: $${REPO}dronemanagementtests
+#    image: ${REPO}dronemanagementtests
 #    build:
 #      context: .
 #      dockerfile: Drone.Management.Tests/Dockerfile
 
   drone-management-adhoc-tests:
-    image: $${REPO}dronemanagementadhoctests
+    image: ${REPO}dronemanagementadhoctests
     build:
       context: .
       dockerfile: Drone.Management.Tests/Drone.Management.AdHoc.Tests/Dockerfile
 
   drone-management-settings-tests:
-    image: $${REPO}dronemanagementsettingstests
+    image: ${REPO}dronemanagementsettingstests
     build:
       context: .
       dockerfile: Drone.Management.Tests/Drone.Management.Settings.Tests/Dockerfile
 
   drone-management-repository-tests:
-    image: $${REPO}dronemanagementrepositorytests
+    image: ${REPO}dronemanagementrepositorytests
     build:
       context: .
       dockerfile: Drone.Management.Tests/Drone.Management.Repository.Tests/Dockerfile
 
   drone-management-migrator-tests:
-    image: $${REPO}dronemanagementmigratortests
+    image: ${REPO}dronemanagementmigratortests
     build:
       context: .
       dockerfile: Drone.Management.Tests/Drone.Management.Migrator.Tests/Dockerfile
 
   drone-management-config-tests:
-    image: $${REPO}dronemanagementconfigtests
+    image: ${REPO}dronemanagementconfigtests
     build:
       context: .
       dockerfile: Drone.Management.Tests/Drone.Management.Config.Tests/Dockerfile
 
   drone-management-api-tests:
-    image: $${REPO}dronemanagementapitests
+    image: ${REPO}dronemanagementapitests
     build:
       context: .
       dockerfile: Drone.Management.Tests/Drone.Management.API.Tests/Dockerfile
 
   drone-management-business-tests:
-    image: $${REPO}dronemanagementbusinesstests
+    image: ${REPO}dronemanagementbusinesstests
     build:
       context: .
       dockerfile: Drone.Management.Tests/Drone.Management.Business.Tests/Dockerfile
