@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Lab.TrackAndTrace.Migrator": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "WAIT_BEFORE_CLOSE": "TRUE",
+        "VERIFY_MIGRATED_TEST_DATA": "TRUE",
+        "MIGRATE_TEST_DATA": "TRUE",
+        "N_TEST_DATAS": "100"
+      }
+    }
+  }
+}

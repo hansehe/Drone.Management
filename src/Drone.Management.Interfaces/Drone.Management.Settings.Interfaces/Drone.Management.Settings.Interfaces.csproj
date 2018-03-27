@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="EmbeddedSettingsSchemas.cs" />
+    <Compile Remove="IMigratorSettings.cs" />
+    <Compile Remove="IRepositorySettings.cs" />
+    <Compile Remove="Schemas\MigrationSettingsSchema.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Schemas\APISettingsSchema.xsd" />
+    <None Remove="Schemas\MigrationSettingsSchema.xsd" />
+    <None Remove="Schemas\RepositorySettingsSchema.xsd" />
+    <None Remove="Schemas\SettingsSchema.xsd" />
+    <None Remove="Schemas\Settings\GeneralSettings.xsd" />
+    <None Remove="Schemas\Settings\MySqlSettings.xsd" />
+    <None Remove="Schemas\Settings\OracleSqlSettings.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Schemas\SettingsSchema.xsd" />
+    <EmbeddedResource Include="Schemas\Settings\GeneralSettings.xsd" />
+    <EmbeddedResource Include="Schemas\Settings\MySqlSettings.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Schemas\Settings\PostgreSqlSettings.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>

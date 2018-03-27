@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Drone.Management.Entities.Interfaces\Drone.Management.Entities.Interfaces.csproj" />
+    <ProjectReference Include="..\Drone.Management.Settings.Interfaces\Drone.Management.Settings.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

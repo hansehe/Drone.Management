@@ -1,0 +1,3 @@
+﻿{
+  "Connect": "User ID=postgres;Password=xxxxxx;Host=localhost;Port=5432;Database=LabTrackAndTrace;Pooling=true;"
+}

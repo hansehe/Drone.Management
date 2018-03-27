@@ -1,0 +1,62 @@
+version: '3'
+
+services:
+  drone.management.db:
+    image: ${REPO}${AUTHOR}drone.management.db${VERSION_DB}
+    restart: always
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    build:
+      context: ./Drone.Management.DB/PostgreSql
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_USER: dronemanager
+      POSTGRES_PASSWORD: drones1234
+      POSTGRES_DB: dronemanager
+      PGDATA: /var/lib/postgresql/data/drone.management.data
+    networks:
+      - drone.management.network
+
+  drone.management.api:
+    image: ${REPO}${AUTHOR}drone.management.api${VERSION_API}
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    build:
+      context: .
+      dockerfile: Drone.Management.API/Dockerfile
+    environment:
+      SETTINGS: ${SETTINGS}
+    depends_on:
+      - drone.management.db
+    networks:
+      - drone.management.network
+
+  drone.management.migrator:
+    image: ${REPO}${AUTHOR}drone.management.migrator${VERSION_MIGRATOR}
+    build:
+      context: .
+      dockerfile: Drone.Management.Migrator/Dockerfile
+    environment:
+      SETTINGS: ${SETTINGS}
+      MIGRATE_TEST_DATA: "FALSE"
+    depends_on:
+      - drone.management.db
+    networks:
+      - drone.management.network
+
+networks:
+  drone.management.network:
+
+
+
+
+
+
+
+
+
+
+

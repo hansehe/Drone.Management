@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" id="PostgreSqlSettings">
+	<xs:include schemaLocation="GeneralSettings.xsd"/>
+	<xs:element name="PostgreSqlSettings">
+		<xs:annotation>
+			<xs:documentation>PostgreSql settings</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SqlConnect"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

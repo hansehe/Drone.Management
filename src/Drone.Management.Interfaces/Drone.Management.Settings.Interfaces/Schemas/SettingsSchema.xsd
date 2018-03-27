@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" id="SettingsSchema">
+	<xs:include schemaLocation="Settings/PostgreSqlSettings.xsd"/>
+  <xs:include schemaLocation="Settings/MySqlSettings.xsd"/>
+	<xs:element name="Settings">
+		<xs:annotation>
+			<xs:documentation>Settings schema</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SettingsModel"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SettingsModel">
+		<xs:annotation>
+			<xs:documentation>Settings model</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element ref="PostgreSqlSettings"/>
+			  <xs:element ref="MySqlSettings"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

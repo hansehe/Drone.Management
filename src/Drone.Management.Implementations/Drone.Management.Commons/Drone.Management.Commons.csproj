@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Drone.Management.Interfaces\Drone.Management.Commons.Interfaces\Drone.Management.Commons.Interfaces.csproj" />
+    <ProjectReference Include="..\..\Drone.Management.Interfaces\Drone.Management.Settings.Interfaces\Drone.Management.Settings.Interfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>

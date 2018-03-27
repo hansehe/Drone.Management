@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Drone.Management.Interfaces\Drone.Management.Migrator.Interfaces\Drone.Management.Migrator.Interfaces.csproj" />
+    <ProjectReference Include="..\Drone.Management.Commons\Drone.Management.Commons.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dbup-postgresql" Version="4.0.0-beta0004" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>

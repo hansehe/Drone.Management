@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- See readme.txt in the Drone.Management.Config project on how to configure the application with this settings file -->
+
+<Settings>
+  <SettingsModel>
+    <PostgreSqlSettings>
+      <SqlConnect UserId="dronemanager" Password="drones1234" Host="drone.management.db" Port="5432" DatabaseName="dronemanagement" Pooling="true" />
+    </PostgreSqlSettings>
+  </SettingsModel>
+</Settings>

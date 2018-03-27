@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  drone.management.db:
+
+  drone.management.migrator:
+    environment:
+      N_TEST_DATAS: "10"
+      WAIT_BEFORE_CLOSE: "FALSE"
+      MIGRATE_TEST_DATA: "TRUE"
+      VERIFY_MIGRATED_TEST_DATA: "TRUE"
+
+  drone.management.api:
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - 8181:80
+
+  drone.management.adhoc.apiclientconsole:
+    image: ${AUTHOR}dronemanagementadhocapiclientconsole
+    build:
+      context: .
+      dockerfile: Drone.Management.AdHoc/Drone.Management.AdHoc.APIClientConsole/Dockerfile
+    environment:
+      SETTINGS: ${SETTINGS}
+      START_API_CLIENT: "TRUE"
+      API_BASE_ADDRESS: http://drone.management.api:80/
+      N_TEST_DATAS: "10"
+      WAIT_BEFORE_CLOSE: "FALSE"
+    depends_on:
+      - drone.management.api
+    networks:
+      - drone.management.network

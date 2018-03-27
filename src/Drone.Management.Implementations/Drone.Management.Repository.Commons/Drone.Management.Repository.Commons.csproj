@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Drone.Management.Interfaces\Drone.Management.Repository.Interfaces\Drone.Management.Repository.Interfaces.csproj" />
+    <ProjectReference Include="..\Drone.Management.Commons\Drone.Management.Commons.csproj" />
+    <ProjectReference Include="..\Drone.Management.Entities\Drone.Management.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0" />
+    <PackageReference Include="Npgsql" Version="4.0.0-preview1" />
+  </ItemGroup>
+
+</Project>

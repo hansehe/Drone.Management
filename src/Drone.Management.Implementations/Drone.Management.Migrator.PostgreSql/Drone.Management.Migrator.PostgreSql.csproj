@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DbUpMigrator.cs" />
+    <Compile Remove="DbUpPostgreSqlMigrator.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Scripts\Script0001 - CreateTables.sql" />
+    <None Remove="Scripts\Script0002 - CreateTagIndex.sql" />
+    <None Remove="Scripts\Script0003 - CreateCreatedIndex.sql" />
+    <None Remove="Scripts\Script0004 - CreateUpdatedIndex.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\Script0004 - CreateUpdatedIndex.sql" />
+    <EmbeddedResource Include="Scripts\Script0003 - CreateCreatedIndex.sql" />
+    <EmbeddedResource Include="Scripts\Script0002 - CreateTagIndex.sql" />
+    <EmbeddedResource Include="Scripts\Script0001 - CreateDroneTable.sql" />
+    <EmbeddedResource Include="SqlCommands.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Drone.Management.Interfaces\Drone.Management.Migrator.Interfaces\Drone.Management.Migrator.Interfaces.csproj" />
+    <ProjectReference Include="..\Drone.Management.Commons\Drone.Management.Commons.csproj" />
+    <ProjectReference Include="..\Drone.Management.Migrator.Commons\Drone.Management.Migrator.Commons.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>

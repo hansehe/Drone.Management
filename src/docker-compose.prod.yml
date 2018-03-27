@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  drone.management.db:
+    environment:
+      POSTGRES_USER: dronemanager
+      POSTGRES_PASSWORD: drones1234
+      POSTGRES_DB: dronemanager
+      PGDATA: /var/lib/postgresql/data/drone.management.data
+    volumes:
+      - drone.management.pgdata:/var/lib/postgresql/data/drone.management.data
+
+  drone.management.migrator:
+
+  drone.management.api:
+    ports:
+      - 8080:80
+
+volumes:
+  drone.management.pgdata:

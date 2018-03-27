@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" id="GeneralSettings">
+	<xs:element name="SqlConnect">
+		<xs:complexType>
+			<xs:attribute name="UserId" type="xs:string" use="required"/>
+			<xs:attribute name="Password" type="xs:string" use="required"/>
+			<xs:attribute name="Host" type="xs:string" use="optional" default="localhost"/>
+			<xs:attribute name="Port" type="xs:string" use="optional" default="5432"/>
+			<xs:attribute name="DatabaseName" type="xs:string" use="optional" default="dronemanagement"/>
+			<xs:attribute name="Pooling" type="xs:boolean" use="optional" default="true"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

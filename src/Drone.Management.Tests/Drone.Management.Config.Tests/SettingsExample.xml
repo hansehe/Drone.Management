@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+  <SettingsModel>
+    <PostgreSqlSettings>
+      <SqlConnect UserId="UserId1" Password="Password1" Host="localhost" Port="5432" DatabaseName="dronemanagement" Pooling="true" />
+    </PostgreSqlSettings>
+  </SettingsModel>
+</Settings>

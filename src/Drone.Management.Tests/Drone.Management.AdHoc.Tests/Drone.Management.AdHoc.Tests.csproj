@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="Moq" Version="4.8.2" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Drone.Management.AdHoc\Drone.Management.AdHoc.APIClient\Drone.Management.AdHoc.APIClient.csproj" />
+    <ProjectReference Include="..\..\Drone.Management.AdHoc\Drone.Management.AdHoc.Migrator\Drone.Management.AdHoc.Migrator.csproj" />
+    <ProjectReference Include="..\..\Drone.Management.AdHoc\Drone.Management.AdHoc.TestData\Drone.Management.AdHoc.TestData.csproj" />
+  </ItemGroup>
+
+</Project>
