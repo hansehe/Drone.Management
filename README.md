@@ -24,3 +24,12 @@ The microservice consists of three services:
     * cd src/
     * docker-compose build
     * docker-compose run
+  
+  The Drone Management API may then be accessed at:
+
+  * http://localhost:8181/api/drones/
+
+  The request returns a list of drone ids, which can be used to request a drone object:
+
+  * http://localhost:8181/api/drones/\<drone_id>
+

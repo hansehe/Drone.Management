@@ -3,6 +3,7 @@
     "Drone.Management.AdHoc.APIClientConsole": {
       "commandName": "Project",
       "environmentVariables": {
+        "MS_START_DELAY": "3000",
         "WAIT_BEFORE_CLOSE": "TRUE",
         "N_TEST_DATAS": "10",
         "START_API_CLIENT": "TRUE"

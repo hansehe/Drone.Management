@@ -15,6 +15,8 @@ services:
       POSTGRES_PASSWORD: drones1234
       POSTGRES_DB: dronemanager
       PGDATA: /var/lib/postgresql/data/drone.management.data
+    volumes:
+      - drone-management-pgdata:/var/lib/postgresql/data/drone.management.data
     networks:
       - drone-management-network
 
@@ -29,6 +31,8 @@ services:
       dockerfile: Drone.Management.API/Dockerfile
     environment:
       SETTINGS: ${SETTINGS}
+    ports:
+      - 8080:80
     depends_on:
       - drone-management-db
     networks:
@@ -42,7 +46,6 @@ services:
       dockerfile: Drone.Management.Migrator/Dockerfile
     environment:
       SETTINGS: ${SETTINGS}
-      MIGRATE_TEST_DATA: "FALSE"
     depends_on:
       - drone-management-db
     networks:
@@ -51,6 +54,9 @@ services:
 networks:
   drone-network:
   drone-management-network:
+
+volumes:
+  drone-management-pgdata:
 
 
 

@@ -10,7 +10,7 @@ namespace Drone.Management.AdHoc.APIClientConsole
         internal static long NumberOfTestDatas = 10;
         internal static string BaseAddress = "http://localhost:9718/";
 
-        private const int MaxConnectionTries = 3;
+        private const int MaxConnectionTries = 0;
         private const int MsSleepBetweenTries = 500;
 
         internal static async Task ExecuteAPIClientWithExceptionHandling(

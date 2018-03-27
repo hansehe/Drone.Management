@@ -7,6 +7,5 @@ $env:REPO = $(cat $ENV_FOLDER/REPO.txt) + "/"
 $env:AUTHOR = $(cat $ENV_FOLDER/AUTHOR.txt) + "/"
 
 cd src/
-docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
 docker-compose -f docker-compose.yml -f docker-compose.prod.yml push
 cd ..

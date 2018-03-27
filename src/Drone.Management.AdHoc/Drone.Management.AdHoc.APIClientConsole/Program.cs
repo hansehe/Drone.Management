@@ -23,6 +23,10 @@ namespace Drone.Management.AdHoc.APIClientConsole
 
         public static async Task ExecuteAPIClientAsync(IServiceProvider serviceProvider)
         {
+            if (int.TryParse(Environment.GetEnvironmentVariable("MS_START_DELAY"), out var msStartDelay))
+            {
+                System.Threading.Thread.Sleep(msStartDelay);
+            }
             var droneBusinessClient = serviceProvider.GetService<IDroneBusinessClient>();
             var testData = serviceProvider.GetService<ITestData>();
             try

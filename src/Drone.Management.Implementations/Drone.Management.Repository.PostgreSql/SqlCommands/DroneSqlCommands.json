@@ -1,6 +1,6 @@
 ﻿{
   "Connect": "User ID=postgres;Password=xxxxxx;Host=localhost;Port=5432;Database=coresample;Pooling=true;",
-  "CreateObject": "INSERT INTO DRONES (ID, CREATED, UPDATED, TAG) VALUES (@ID, @CREATED, @UPDATED, @TAG, @OWNER)",
+  "CreateObject": "INSERT INTO DRONES (ID, CREATED, UPDATED, TAG, OWNER) VALUES (@ID, @CREATED, @UPDATED, @TAG, @OWNER)",
   "ReadObject": "SELECT * FROM DRONES WHERE ID = @ID",
   "UpdateObject": "UPDATE DRONES SET CREATED = @CREATED, UPDATED = @UPDATED, TAG = @TAG, OWNER = @OWNER WHERE ID = @ID",
   "DeleteObject": "DELETE FROM DRONES WHERE ID = @ID",
