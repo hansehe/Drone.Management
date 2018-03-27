@@ -31,5 +31,5 @@ The microservice consists of three services:
 
   The request returns a list of drone ids, which can be used to request a drone object:
 
-  * http://localhost:8181/api/drones/\<drone_id>
+  * http://localhost:8181/api/drones/<drone_id>
 
