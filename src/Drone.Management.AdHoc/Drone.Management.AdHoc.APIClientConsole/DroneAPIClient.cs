@@ -11,7 +11,7 @@ namespace Drone.Management.AdHoc.APIClientConsole
     {
         internal static async Task ExecuteDroneAPIClient(IDroneBusinessClient droneBusinessClient, ITestData testData, Uri baseAddress)
         {
-            Console.WriteLine($"Connecting to {baseAddress} drone API server");
+            Console.WriteLine($"\r\nConnecting to DRONE API server on {baseAddress.AbsoluteUri}\r\n");
             droneBusinessClient.SetupHttpClient(baseAddress);
             await ExecuteGetDroneIds(droneBusinessClient);
             foreach (var dataSet in testData.DataSets)

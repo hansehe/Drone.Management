@@ -3,6 +3,12 @@ version: '3'
 services:
   drone.management.db:
 
+  drone.management.api:
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - 8181:80
+
   drone.management.migrator:
     environment:
       N_TEST_DATAS: "10"
@@ -10,14 +16,8 @@ services:
       MIGRATE_TEST_DATA: "TRUE"
       VERIFY_MIGRATED_TEST_DATA: "TRUE"
 
-  drone.management.api:
-    environment:
-      ASPNETCORE_ENVIRONMENT: Development
-    ports:
-      - 8181:80
-
   drone.management.adhoc.apiclientconsole:
-    image: ${AUTHOR}dronemanagementadhocapiclientconsole
+    image: ${AUTHOR}drone.management.adhoc.apiclientconsole
     build:
       context: .
       dockerfile: Drone.Management.AdHoc/Drone.Management.AdHoc.APIClientConsole/Dockerfile

@@ -24,6 +24,3 @@ The microservice consists of three services:
     * cd src/
     * docker-compose build
     * docker-compose run
-
-    
-"# Drone.Management" 

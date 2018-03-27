@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Drone.Management.API.Controllers;
 using Drone.Management.Business.Interfaces;
+using Drone.Management.Entities;
 using Drone.Management.Entities.Interfaces;
 using Drone.Management.Entities.Models;
 using FluentAssertions;

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Drone.Management.AdHoc.APIClient;
 using Drone.Management.AdHoc.APIClient.BusinessClients;
+using Drone.Management.Entities;
 using Drone.Management.Entities.Interfaces;
 using Moq;
 using Xunit;
@@ -10,6 +11,17 @@ namespace Drone.Management.AdHoc.Tests
 {
     public class DroneBusinessClientTests
     {
+        public DroneBusinessClientTests()
+        {
+            try
+            {
+                AutoMapperInit.AutoMapDtoModels();
+            }
+            catch (Exception e)
+            {
+            }
+        }
+
         public static IIdentity GetIdentity()
         {
             var id = new Mock<IIdentity>();
