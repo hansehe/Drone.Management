@@ -14,9 +14,11 @@
     <None Remove="Scripts\Script0002 - CreateTagIndex.sql" />
     <None Remove="Scripts\Script0003 - CreateCreatedIndex.sql" />
     <None Remove="Scripts\Script0004 - CreateUpdatedIndex.sql" />
+    <None Remove="Scripts\Script0005 - CreateOwnerIndex.sql" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Scripts\Script0005 - CreateOwnerIndex.sql" />
     <EmbeddedResource Include="Scripts\Script0004 - CreateUpdatedIndex.sql" />
     <EmbeddedResource Include="Scripts\Script0003 - CreateCreatedIndex.sql" />
     <EmbeddedResource Include="Scripts\Script0002 - CreateTagIndex.sql" />

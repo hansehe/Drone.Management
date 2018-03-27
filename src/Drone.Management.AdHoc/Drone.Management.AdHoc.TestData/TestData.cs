@@ -30,7 +30,8 @@ namespace Drone.Management.AdHoc.TestData
         {
             var timestamp = DateTime.Now.ToString(CultureInfo.InvariantCulture);
             tag = $"Drone {tag} - {timestamp}";
-            var drone = Entities.Drone.CreateDrone(tag);
+            var owner = $"Drone owner {tag}";
+            var drone = Entities.Drone.CreateDrone(tag, owner);
             return drone;
         }
     }

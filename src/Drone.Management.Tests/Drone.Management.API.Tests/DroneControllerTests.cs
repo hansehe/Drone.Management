@@ -34,7 +34,7 @@ namespace Drone.Management.API.Tests
 
         private static IDrone GetDrone()
         {
-            var drone = Entities.Drone.CreateDrone("mocked drone");
+            var drone = Entities.Drone.CreateDrone("mocked drone", "mocked owner");
             return drone;
         }
 

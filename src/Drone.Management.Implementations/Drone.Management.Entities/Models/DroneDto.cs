@@ -9,5 +9,6 @@ namespace Drone.Management.Entities.Models
         public DateTime Created { get; set; }
         public DateTime Updated { get; set; }
         public string Tag { get; set; }
+        public string Owner { get; set; }
     }
 }

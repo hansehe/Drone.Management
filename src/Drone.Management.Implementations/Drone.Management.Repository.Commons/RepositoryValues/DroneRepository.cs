@@ -54,6 +54,7 @@ namespace Drone.Management.Repository.Commons.RepositoryValues
             dynamicParameters.Add("CREATED", drone.Created, DbType.DateTime);
             dynamicParameters.Add("UPDATED", drone.Updated, DbType.DateTime);
             dynamicParameters.Add("TAG", drone.Tag, DbType.String);
+            dynamicParameters.Add("OWNER", drone.Owner, DbType.String);
             return dynamicParameters;
         }
     }

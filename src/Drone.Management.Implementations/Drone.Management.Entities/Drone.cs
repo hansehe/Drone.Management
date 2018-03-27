@@ -9,9 +9,11 @@ namespace Drone.Management.Entities
         public DateTime Created { get; set; }
         public DateTime Updated { get; set; }
         public string Tag { get; set; }
+        public string Owner { get; set; }
 
         public static IDrone CreateDrone(
-            string tag)
+            string tag,
+            string owner)
         {
             var timestamp = DateTime.Now;
             var drone = new Drone
@@ -19,7 +21,8 @@ namespace Drone.Management.Entities
                 Id = Identity.CreateIdentity().Id,
                 Tag = tag,
                 Created = timestamp,
-                Updated = timestamp
+                Updated = timestamp,
+                Owner = owner
             };
             return drone;
         }
