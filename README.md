@@ -3,9 +3,9 @@
 ## About
 Simple microservice running on Docker and written in ASP.NET Core for managing drones.
 
-The project is inspired by the article `Designing microservices: Domain analysis`:
+The project is inspired by the article `Designing microservices`:
 
-  * https://docs.microsoft.com/en-us/azure/architecture/microservices/domain-analysis
+  * https://docs.microsoft.com/en-us/azure/architecture/microservices
 
 The microservice consists of three services:
   * API Server
@@ -25,7 +25,7 @@ The microservice consists of three services:
     * docker-compose build
     * docker-compose run
   
-  The Drone Management API may then be accessed at:
+  The Drone Management API may be accessed at:
 
   * http://localhost:8181/api/drones/
 
