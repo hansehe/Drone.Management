@@ -31,7 +31,7 @@ namespace Drone.Management.AdHoc.APIClientConsole
             var testData = serviceProvider.GetService<ITestData>();
             try
             {
-                await SafeAPIClient.ExecuteAPIClientWithExceptionHandling(droneBusinessClient, testData);
+                await APIClient.ExecuteAPIClient(droneBusinessClient, testData);
                 Console.WriteLine("Integration test with API Client finished with success.");
             }
             catch (Exception e)

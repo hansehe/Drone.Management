@@ -1,4 +1,4 @@
-﻿namespace Drone.Management.Repository.Commons.RepositoryCommandValues
+﻿namespace Drone.Management.Repository.Commons.RepositoryEntityCommands
 {
     public class DroneRepositoryCommands : RepositoryCommands, IDroneRepositoryCommands
     {

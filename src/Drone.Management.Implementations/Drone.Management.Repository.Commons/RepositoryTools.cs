@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
 using Drone.Management.Commons;
-using Drone.Management.Repository.Commons.RepositoryCommandValues;
+using Drone.Management.Repository.Commons.RepositoryEntityCommands;
 using Npgsql;
 
 namespace Drone.Management.Repository.Commons

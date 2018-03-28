@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 using Drone.Management.Repository.Commons;
-using Drone.Management.Repository.Commons.RepositoryValues;
+using Drone.Management.Repository.Commons.RepositoryEntities;
 using Drone.Management.Settings.Interfaces;
 
 namespace Drone.Management.Repository.PostgreSql

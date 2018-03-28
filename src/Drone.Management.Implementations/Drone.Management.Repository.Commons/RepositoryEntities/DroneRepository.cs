@@ -4,10 +4,10 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Dapper;
 using Drone.Management.Entities.Interfaces;
-using Drone.Management.Repository.Commons.RepositoryCommandValues;
+using Drone.Management.Repository.Commons.RepositoryEntityCommands;
 using Drone.Management.Repository.Interfaces.RepositoryValues;
 
-namespace Drone.Management.Repository.Commons.RepositoryValues
+namespace Drone.Management.Repository.Commons.RepositoryEntities
 {
     public abstract class DroneRepository<T> : RepositoryBase<T>, IDroneRepository
     {
