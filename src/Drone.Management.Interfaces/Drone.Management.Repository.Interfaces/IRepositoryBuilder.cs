@@ -6,5 +6,7 @@ namespace Drone.Management.Repository.Interfaces
     public interface IRepositoryBuilder
     {
         IDroneRepository BuildDroneRepository(ISettings settings);
+
+        IStatusRepository BuildStatusRepository(ISettings settings);
     }
 }

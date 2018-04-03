@@ -15,6 +15,7 @@ services:
       WAIT_BEFORE_CLOSE: "FALSE"
       MIGRATE_TEST_DATA: "TRUE"
       VERIFY_MIGRATED_TEST_DATA: "TRUE"
+      DELETE_MIGRATED_TEST_DATA: "FALSE"
 
   drone-management-adhoc-apiclientconsole:
     image: ${REPO}drone.management.adhoc.apiclientconsole

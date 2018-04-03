@@ -2,8 +2,7 @@
 
 namespace Drone.Management.Entities.Interfaces
 {
-    public interface IBase : IIdentity
+    public interface IDroneStatus : IStatus
     {
-        DateTime Created { get; set; }
     }
 }

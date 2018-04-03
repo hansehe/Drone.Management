@@ -1,5 +1,4 @@
-﻿using Drone.Management.Repository.Interfaces;
-using Drone.Management.Repository.Interfaces.RepositoryValues;
+﻿using Drone.Management.Repository.Interfaces.RepositoryValues;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Drone.Management.Repository.PostgreSql
@@ -8,9 +7,8 @@ namespace Drone.Management.Repository.PostgreSql
     {
         public static void AddPostgeSqlRepositoryServices(IServiceCollection services)
         {
-            {
-                services.AddScoped<IDroneRepository, PostgreSqlDroneRepository>();
-            }
+            services.AddScoped<IDroneRepository, PostgreSqlDroneRepository>();
+            services.AddScoped<IStatusRepository, PostgreSqlStatusRepository>();
         }
     }
 }

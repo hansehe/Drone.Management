@@ -7,9 +7,11 @@
   <ItemGroup>
     <None Remove="EventSqlCommands.json" />
     <None Remove="ServiceSqlCommands.json" />
+    <None Remove="SqlCommands\StatusSqlCommands.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="SqlCommands\StatusSqlCommands.json" />
     <EmbeddedResource Include="SqlCommands\DroneSqlCommands.json" />
   </ItemGroup>
 

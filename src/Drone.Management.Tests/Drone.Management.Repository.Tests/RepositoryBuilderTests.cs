@@ -17,16 +17,29 @@ namespace Drone.Management.Repository.Tests
             repositoryMock.Setup(x => x.CanUseRepository(It.IsAny<ISettings>())).Returns(canUseFlag);
             return repositoryMock.Object;
         }
-        
+
+        public static IStatusRepository GetStatusRepository(bool canUseFlag)
+        {
+            var repositoryMock = new Mock<IStatusRepository>();
+            repositoryMock.Setup(x => x.CanUseRepository(It.IsAny<ISettings>())).Returns(canUseFlag);
+            return repositoryMock.Object;
+        }
+
         public static IEnumerable<IDroneRepository> GetDroneRepositories(bool canUseFlag)
         {
             var repositories = new List<IDroneRepository> { GetDroneRepository(false), GetDroneRepository(canUseFlag), GetDroneRepository(false) };
             return repositories;
         }
 
+        public static IEnumerable<IStatusRepository> GetStatusRepositories(bool canUseFlag)
+        {
+            var repositories = new List<IStatusRepository> { GetStatusRepository(false), GetStatusRepository(canUseFlag), GetStatusRepository(false) };
+            return repositories;
+        }
+
         public static IRepositoryBuilder GetRepositoryBuilder(bool canUseFlag)
         {
-            return new RepositoryBuilder(GetDroneRepositories(canUseFlag));
+            return new RepositoryBuilder(GetDroneRepositories(canUseFlag), GetStatusRepositories(canUseFlag));
         }
 
         public static ISettings GetMockSettings()
@@ -49,6 +62,22 @@ namespace Drone.Management.Repository.Tests
             var repositoryBuilderBuilder = GetRepositoryBuilder(false);
             var settings = GetMockSettings();
             Assert.Throws<Exception>(() => repositoryBuilderBuilder.BuildDroneRepository(settings));
+        }
+
+        [Fact]
+        public void BuildStatusRepository_Success()
+        {
+            var repositoryBuilderBuilder = GetRepositoryBuilder(true);
+            var settings = GetMockSettings();
+            var repository = repositoryBuilderBuilder.BuildStatusRepository(settings);
+        }
+
+        [Fact]
+        public void BuildStatusRepository_NoSuccess()
+        {
+            var repositoryBuilderBuilder = GetRepositoryBuilder(false);
+            var settings = GetMockSettings();
+            Assert.Throws<Exception>(() => repositoryBuilderBuilder.BuildStatusRepository(settings));
         }
     }
 }

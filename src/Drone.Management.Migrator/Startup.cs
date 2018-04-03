@@ -50,6 +50,11 @@ namespace Drone.Management.Migrator
                 migratorBuilder.VerifyMigratedTestData = false;
             }
 
+            if (Environment.GetEnvironmentVariable("DELETE_MIGRATED_TEST_DATA") == "TRUE")
+            {
+                migratorBuilder.DeleteMigratedTestData = true;
+            }
+
             await SafeMigration.ExecuteMigration(migratorBuilder, settings);
         }
 

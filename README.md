@@ -5,7 +5,7 @@ Simple microservice running on Docker and written in ASP.NET Core for managing d
 
 The project is inspired by the article `Designing microservices`:
 
-  * https://docs.microsoft.com/en-us/azure/architecture/microservices
+  * https://docs.microsoft.com/en-us/azure/architecture/microservices
 
 The microservice consists of three services:
   * API Server
@@ -33,3 +33,10 @@ The microservice consists of three services:
 
   * http://localhost:8181/api/drones/<drone_id>
 
+  Additionally, all stored statuses of a drone may be requested at following address:
+
+  * http://localhost:8181/api/drones/statuses/<drone_id>
+
+  A specific status is read by selecting either of the drone status ids:
+
+  * http://localhost:8181/api/drones/statuses/status/<status_id>

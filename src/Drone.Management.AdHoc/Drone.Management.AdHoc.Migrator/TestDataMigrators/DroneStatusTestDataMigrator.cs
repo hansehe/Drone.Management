@@ -11,17 +11,17 @@ using Drone.Management.Settings.Interfaces;
 
 namespace Drone.Management.AdHoc.Migrator.TestDataMigrators
 {
-    public class DroneTestDataMigrator : ITestDataMigrator
+    public class DroneStatusTestDataMigrator : ITestDataMigrator
     {
-        public int Queue { get; } = 0;
+        public int Queue { get; } = 1;
 
         private readonly IRepositoryBuilder RepositoryBuilderField;
 
-        private IDroneRepository DroneRepositoryField { get; set; }
+        private IStatusRepository StatusRepositoryField { get; set; }
 
         private ITestData TestDataField;
 
-        public DroneTestDataMigrator(IRepositoryBuilder repositoryBuilder)
+        public DroneStatusTestDataMigrator(IRepositoryBuilder repositoryBuilder)
         {
             RepositoryBuilderField = repositoryBuilder;
         }
@@ -33,24 +33,18 @@ namespace Drone.Management.AdHoc.Migrator.TestDataMigrators
 
         public async Task VerifyMigratedTestData()
         {
-            Console.WriteLine("\r\nExecuting DRONE test data verification\r\n");
-            await ReadDroneIds();
+            Console.WriteLine("\r\nExecuting DRONE STATUS test data verification\r\n");
             foreach (var dataSet in TestDataField.DataSets)
             {
                 var drone = dataSet.Item1;
-                await VerifyDrone(drone);
+                var droneStatus = dataSet.Item2;
+                await ReadDroneStatusIds(drone);
+                await VerifyDroneStatus(droneStatus);
             }
-            await ReadDroneIds();
         }
 
         public async Task DeleteMigratedTestData()
         {
-            Console.WriteLine($"Deleting {TestDataField.DataSets.Count} drones");
-            foreach (var dataSet in TestDataField.DataSets)
-            {
-                var drone = dataSet.Item1;
-                await DroneRepositoryField.DeleteDrone(drone);
-            }
         }
 
         public async Task Migrate()
@@ -58,8 +52,8 @@ namespace Drone.Management.AdHoc.Migrator.TestDataMigrators
             Console.WriteLine($"Creating {TestDataField.DataSets.Count} drones");
             foreach (var dataSet in TestDataField.DataSets)
             {
-                var drone = dataSet.Item1;
-                await DroneRepositoryField.CreateDrone(drone);
+                var droneStatus = dataSet.Item2;
+                await StatusRepositoryField.CreateStatus(droneStatus);
             }
         }
 
@@ -69,28 +63,26 @@ namespace Drone.Management.AdHoc.Migrator.TestDataMigrators
 
         public async Task<IMigrator> BuildMigrator(ISettings settings)
         {
-            DroneRepositoryField = RepositoryBuilderField.BuildDroneRepository(settings);
+            StatusRepositoryField = RepositoryBuilderField.BuildStatusRepository(settings);
             return this;
         }
 
-        public async Task ReadDroneIds()
+        public async Task ReadDroneStatusIds(IIdentity droneId)
         {
-            var droneIds = await DroneRepositoryField.ReadDroneIds();
-            Console.WriteLine($"Found {droneIds.Count()} drone ids");
+            var droneStatusIds = await StatusRepositoryField.ReadStatusIds(droneId);
+            Console.WriteLine($"Found {droneStatusIds.Count()} drone status ids");
         }
 
-        public async Task VerifyDrone(IDrone drone)
+        public async Task VerifyDroneStatus(IDroneStatus droneStatus)
         {
             var stopWatch = Stopwatch.StartNew();
-            var cpDrone = await DroneRepositoryField.ReadDrone(drone);
+            var cpDroneStatus = await StatusRepositoryField.ReadStatus(droneStatus);
             stopWatch.Stop();
-            if (cpDrone.Id.CompareTo(drone.Id) != 0)
+            if (cpDroneStatus.Id.CompareTo(droneStatus.Id) != 0)
             {
                 throw new Exception("Drone read from DB does not match created drone!");
             }
-            Console.WriteLine($"Read drone {cpDrone.Tag} in {stopWatch.ElapsedMilliseconds} ms");
-            drone.Tag = $"Updated {drone.Tag}";
-            await DroneRepositoryField.UpdateDrone(drone);
+            Console.WriteLine($"Verified drone status {cpDroneStatus.Status} in {stopWatch.ElapsedMilliseconds} ms");
         }
     }
 }

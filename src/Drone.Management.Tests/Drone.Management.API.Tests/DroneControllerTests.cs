@@ -38,11 +38,11 @@ namespace Drone.Management.API.Tests
             return drone;
         }
 
-        public IDroneBusiness GetEventBusiness()
+        public IDroneBusiness GetDroneBusiness()
         {
-            var eventBusiness = new Mock<IDroneBusiness>();
-            eventBusiness.Setup(x => x.GetDrone(It.IsAny<IIdentity>())).ReturnsAsync(GetDrone());
-            return eventBusiness.Object;
+            var droneBusiness = new Mock<IDroneBusiness>();
+            droneBusiness.Setup(x => x.GetDrone(It.IsAny<IIdentity>())).ReturnsAsync(GetDrone());
+            return droneBusiness.Object;
         }
 
         public ActionContext GetActionContext()
@@ -52,9 +52,9 @@ namespace Drone.Management.API.Tests
 
         public DroneController GetDroneController()
         {
-            var eventBusiness = GetEventBusiness();
-            var eventController = new DroneController(eventBusiness);
-            return eventController;
+            var droneBusiness = GetDroneBusiness();
+            var droneController = new DroneController(droneBusiness);
+            return droneController;
         }
 
         [Fact]

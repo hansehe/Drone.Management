@@ -11,5 +11,7 @@ namespace Drone.Management.AdHoc.Migrator
         void SetTestData(ITestData testData);
 
         Task VerifyMigratedTestData();
+
+        Task DeleteMigratedTestData();
     }
 }

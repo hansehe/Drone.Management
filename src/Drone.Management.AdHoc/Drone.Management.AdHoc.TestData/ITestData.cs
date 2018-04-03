@@ -6,7 +6,7 @@ namespace Drone.Management.AdHoc.TestData
 {
     public interface ITestData
     {
-        IList<Tuple<IDrone>> DataSets { get; }
+        IList<Tuple<IDrone, IDroneStatus>> DataSets { get; }
 
         void GenerateDataSets(long nDatas);
     }

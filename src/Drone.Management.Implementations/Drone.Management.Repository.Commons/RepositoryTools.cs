@@ -24,6 +24,13 @@ namespace Drone.Management.Repository.Commons
             return repositorySqlCommands;
         }
 
+        public static IStatusRepositoryCommands LoadAndAssertStatusRepositorySqlCommands(string sqlCommandsResourcePath, Assembly callingAssembly)
+        {
+            var repositorySqlCommands = JsonParser.GetDeserializedObjectFromResource<StatusRepositoryCommands>(sqlCommandsResourcePath, callingAssembly);
+            StatusRepositoryCommands.AssertStatusRepositoryCommandsAreSet(repositorySqlCommands);
+            return repositorySqlCommands;
+        }
+
         public static IDbConnection ResolveDbConnection(AvailableDbConnections dbConnection)
         {
             switch (dbConnection)

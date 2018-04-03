@@ -7,8 +7,9 @@ namespace Drone.Management.AdHoc.APIClientConsole
     {
         public static void AddAdHocAPIClientConsoleServices(IServiceCollection services)
         {
-            services.AddScoped<IAPIClient, DroneAPIClient>();
             services.AddScoped<IAPIClientManager, APIClientManager>();
+            services.AddScoped<IAPIClient, DroneAPIClient>();
+            services.AddScoped<IAPIClient, DroneStatusAPIClient>();
         }
     }
 }
