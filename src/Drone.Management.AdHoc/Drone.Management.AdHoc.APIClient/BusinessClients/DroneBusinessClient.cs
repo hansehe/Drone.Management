@@ -23,7 +23,7 @@ namespace Drone.Management.AdHoc.APIClient.BusinessClients
             BusinessClientField.SetupHttpClient(baseAddress);
         }
 
-        public Task CreateDrone(IDrone drone)
+        public Task<Uri> CreateDrone(IDrone drone)
         {
             var droneDto = Mapper.Map<DroneDto>(drone);
             return BusinessClientField.CreateObject(APIValueAddress, droneDto);
@@ -44,7 +44,7 @@ namespace Drone.Management.AdHoc.APIClient.BusinessClients
             return drone;
         }
 
-        public Task UpdateDrone(IDrone drone)
+        public Task<Uri> UpdateDrone(IDrone drone)
         {
             var droneDto = Mapper.Map<DroneDto>(drone);
             return BusinessClientField.UpdateObject(APIValueAddress, droneDto);

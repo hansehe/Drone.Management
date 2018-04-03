@@ -16,8 +16,9 @@ namespace Drone.Management.AdHoc.APIClientConsole
 
         private static IServiceProvider ConfigureAndBuildServices(IServiceCollection services)
         {
-            AdHoc.APIClient.ServiceCollectionExtension.AddAdHocAPIClientServices(services);
+            APIClient.ServiceCollectionExtension.AddAdHocAPIClientServices(services);
             TestData.ServiceCollectionExtension.AddAdHocTestDataServices(services);
+            ServiceCollectionExtension.AddAdHocAPIClientConsoleServices(services);
             var serviceProvider = services.BuildServiceProvider();
             return serviceProvider;
         }

@@ -14,7 +14,10 @@ namespace Drone.Management.AdHoc.APIClient
 
         public void SetupHttpClient(Uri baseAddress)
         {
-            HttpClientField.BaseAddress = baseAddress;
+            if (HttpClientField.BaseAddress == null)
+            {
+                HttpClientField.BaseAddress = baseAddress;
+            }
         }
     }
 }

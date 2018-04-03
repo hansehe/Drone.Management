@@ -97,7 +97,7 @@ namespace Drone.Management.API.Tests
             var eventController = GetDroneController();
             var actionResult = await eventController.DeleteDrone(Guid.NewGuid().ToString());
             var okObjectResult = actionResult.Should().BeOfType<OkObjectResult>().Subject;
-            okObjectResult.Value.Should().BeAssignableTo<string>();
+            okObjectResult.Value.Should().BeAssignableTo<IdentityDto>();
         }
     }
 }

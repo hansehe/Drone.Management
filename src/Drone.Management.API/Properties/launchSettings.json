@@ -13,6 +13,7 @@
       "launchBrowser": true,
       "launchUrl": "api/drones",
       "environmentVariables": {
+        "DEFAULT_SETTINGS": "POSTGRESQL_LOCALHOST",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },

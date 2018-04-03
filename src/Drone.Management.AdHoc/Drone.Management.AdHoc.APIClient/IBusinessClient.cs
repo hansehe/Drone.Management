@@ -10,7 +10,7 @@ namespace Drone.Management.AdHoc.APIClient
 
         Task<T> GetObject<T>(string uri);
 
-        Task<T> UpdateObject<T>(string uri, T @object);
+        Task<Uri> UpdateObject<T>(string uri, T @object);
 
         Task<HttpStatusCode> DeleteObject(string uri);
     }

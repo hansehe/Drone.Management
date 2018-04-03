@@ -57,22 +57,6 @@ namespace Drone.Management.API.Controllers
             return Ok(droneDto);
         }
 
-        // GET api/drones
-        [HttpGet(Name = "GetDrones")]
-        public async Task<IActionResult> GetDrones([FromBody] IEnumerable<IdentityDto> droneIdDtos)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var droneIds = Mapper.Map<IEnumerable<IIdentity>>(droneIdDtos);
-            var drones = await DroneBusinessField.GetDrones(droneIds);
-
-            var droneDto = Mapper.Map<IEnumerable<DroneDto>>(drones);
-            return Ok(droneDto);
-        }
-
         // PUT api/drones
         [HttpPut(Name = "UpdateDrone")]
         public async Task<IActionResult> UpdateDrone([FromBody] DroneDto droneDto)
