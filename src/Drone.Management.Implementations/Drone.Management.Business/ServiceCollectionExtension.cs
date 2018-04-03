@@ -8,6 +8,7 @@ namespace Drone.Management.Business
         public static void AddBusinessServices(IServiceCollection services)
         {
             services.AddScoped<IDroneBusiness, DroneBusiness>();
+            services.AddScoped<IStatusBusiness, StatusBusiness>();
         }
     }
 }

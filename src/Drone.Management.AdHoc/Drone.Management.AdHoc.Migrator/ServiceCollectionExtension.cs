@@ -9,6 +9,7 @@ namespace Drone.Management.AdHoc.Migrator
         {
             services.AddScoped<ITestDataMigratorManager, TestDataMigratorManager>();
             services.AddScoped<ITestDataMigrator, DroneTestDataMigrator>();
+            services.AddScoped<ITestDataMigrator, DroneStatusTestDataMigrator>();
         }
     }
 }

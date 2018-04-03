@@ -37,12 +37,11 @@ namespace Drone.Management.AdHoc.APIClient
             return @object;
         }
 
-        public async Task<T> UpdateObject<T>(string uri, T @object)
+        public async Task<Uri> UpdateObject<T>(string uri, T @object)
         {
             var response = await HttpClientWrapperField.HttpClientField.PutAsJsonAsync(uri, @object);
             response.EnsureSuccessStatusCode();
-            @object = await response.Content.ReadAsAsync<T>();
-            return @object;
+            return response.Headers.Location;
         }
 
         public async Task<HttpStatusCode> DeleteObject(string uri)

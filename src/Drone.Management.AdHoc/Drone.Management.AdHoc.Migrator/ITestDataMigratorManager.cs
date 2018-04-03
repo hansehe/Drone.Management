@@ -7,5 +7,7 @@ namespace Drone.Management.AdHoc.Migrator
         long NumberOfDataSets { get; set; }
 
         bool VerifyMigratedTestData { get; set; }
+
+        bool DeleteMigratedTestData { get; set; }
     }
 }

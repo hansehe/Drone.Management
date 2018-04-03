@@ -3,16 +3,19 @@ version: '3'
 services:
   drone-management-api:
     environment:
+      DEFAULT_SETTINGS: POSTGRESQL
       ASPNETCORE_ENVIRONMENT: Development
     ports:
       - 8181:80
 
   drone-management-migrator:
     environment:
+      DEFAULT_SETTINGS: POSTGRESQL
       N_TEST_DATAS: "10"
       WAIT_BEFORE_CLOSE: "FALSE"
       MIGRATE_TEST_DATA: "TRUE"
       VERIFY_MIGRATED_TEST_DATA: "TRUE"
+      DELETE_MIGRATED_TEST_DATA: "FALSE"
 
   drone-management-adhoc-apiclientconsole:
     image: ${REPO}drone.management.adhoc.apiclientconsole
@@ -23,7 +26,7 @@ services:
       SETTINGS: ${SETTINGS}
       START_API_CLIENT: "TRUE"
       API_BASE_ADDRESS: http://drone-management-api:80/
-      N_TEST_DATAS: "10"
+      N_TEST_DATAS: "5"
       WAIT_BEFORE_CLOSE: "FALSE"
       MS_START_DELAY: "3000"
     depends_on:

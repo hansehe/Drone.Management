@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DefaultSettings\DefaultPostgreSqlSettings_localhost.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="DefaultSettings\DefaultPostgreSqlSettings_localhost.xml" />
     <EmbeddedResource Include="DefaultSettings\DefaultPostgreSqlSettings.xml" />
   </ItemGroup>
 

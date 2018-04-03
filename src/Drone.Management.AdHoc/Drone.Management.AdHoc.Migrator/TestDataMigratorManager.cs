@@ -13,6 +13,8 @@ namespace Drone.Management.AdHoc.Migrator
 
         public bool VerifyMigratedTestData { get; set; } = true;
 
+        public bool DeleteMigratedTestData { get; set; } = false;
+
         private readonly IEnumerable<ITestDataMigrator> SortedTestDataMigratorsField;
 
         private readonly ITestData TestDataField;
@@ -45,6 +47,10 @@ namespace Drone.Management.AdHoc.Migrator
                 foreach (var testDataMigrator in SortedTestDataMigratorsField)
                 {
                     await testDataMigrator.VerifyMigratedTestData();
+                    if (DeleteMigratedTestData)
+                    {
+                        await testDataMigrator.DeleteMigratedTestData();
+                    }
                 }
             }
         }

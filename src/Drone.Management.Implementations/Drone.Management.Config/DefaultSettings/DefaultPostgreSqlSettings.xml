@@ -6,13 +6,3 @@
     </PostgreSqlSettings>
   </SettingsModel>
 </Settings>
-
-<!-- Uncomment section below and comment section above to enable connection to a local postgresql database  --> 
-
-<!--<Settings>
-  <SettingsModel>
-    <PostgreSqlSettings>
-      <SqlConnect UserId="dronemanager" Password="drones1234" Host="localhost" Port="5432" DatabaseName="dronemanagement" Pooling="true" />
-    </PostgreSqlSettings>
-  </SettingsModel>
-</Settings>-->

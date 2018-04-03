@@ -10,6 +10,7 @@ namespace Drone.Management.Entities
             AutoMapper.Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<IDrone, DroneDto>();
+                cfg.CreateMap<IDroneStatus, DroneStatusDto>();
                 cfg.CreateMap<IIdentity, IdentityDto>();
             });
         }

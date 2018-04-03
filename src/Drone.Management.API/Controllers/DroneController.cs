@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Drone.Management.Business.Interfaces;
@@ -29,33 +28,18 @@ namespace Drone.Management.API.Controllers
             }
 
             var drone = Mapper.Map<IDrone>(droneDto);
-            try
-            {
-                await DroneBusinessField.CreateDrone(drone);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return BadRequest(e);
-            }
+            await DroneBusinessField.CreateDrone(drone);
 
-            return Ok(droneDto);
+            droneDto = Mapper.Map<DroneDto>(drone);
+            var createdAtRouteResult = new CreatedAtRouteResult(new { id = droneDto.Id }, droneDto);
+            return createdAtRouteResult;
         }
 
         // GET api/drones
         [HttpGet(Name = "GetDroneIds")]
         public async Task<IActionResult> GetDroneIds()
         {
-            IEnumerable<IIdentity> droneIds;
-            try
-            {
-                droneIds = await DroneBusinessField.GetDroneIds();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return BadRequest(e);
-            }
+            var droneIds = await DroneBusinessField.GetDroneIds();
 
             var droneIdDtos = Mapper.Map<IEnumerable<IdentityDto>>(droneIds);
             return Ok(droneIdDtos);
@@ -65,18 +49,9 @@ namespace Drone.Management.API.Controllers
         [HttpGet("{guid}", Name = "GetDrone")]
         public async Task<IActionResult> GetDrone(string guid)
         {
-            IDrone drone;
-            try
-            {
-                var idDto = IdentityDto.CreateIdentityDto(guid);
-                var id = Mapper.Map<IIdentity>(idDto);
-                drone = await DroneBusinessField.GetDrone(id);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return BadRequest(e);
-            }
+            var idDto = IdentityDto.CreateIdentityDto(guid);
+            var id = Mapper.Map<IIdentity>(idDto);
+            var drone = await DroneBusinessField.GetDrone(id);
 
             var droneDto = Mapper.Map<DroneDto>(drone);
             return Ok(droneDto);
@@ -92,36 +67,22 @@ namespace Drone.Management.API.Controllers
             }
 
             var drone = Mapper.Map<IDrone>(droneDto);
-            try
-            {
-                await DroneBusinessField.UpdateDrone(drone);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return BadRequest(e);
-            }
+            await DroneBusinessField.UpdateDrone(drone);
 
-            return Ok(droneDto);
+            droneDto = Mapper.Map<DroneDto>(drone);
+            var acceptedAtRouteResult = new AcceptedAtRouteResult(new { id = droneDto.Id }, droneDto);
+            return acceptedAtRouteResult;
         }
 
         // DELETE api/drones/{guid}
         [HttpDelete("{guid}", Name = "DeleteDrone")]
         public async Task<IActionResult> DeleteDrone(string guid)
         {
-            try
-            {
-                var idDto = IdentityDto.CreateIdentityDto(guid);
-                var id = Mapper.Map<IIdentity>(idDto);
-                await DroneBusinessField.DeleteDrone(id);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return BadRequest(e);
-            }
-
-            return Ok(guid);
+            var idDto = IdentityDto.CreateIdentityDto(guid);
+            var id = Mapper.Map<IIdentity>(idDto);
+            await DroneBusinessField.DeleteDrone(id);
+            
+            return Ok(idDto);
         }
     }
 }

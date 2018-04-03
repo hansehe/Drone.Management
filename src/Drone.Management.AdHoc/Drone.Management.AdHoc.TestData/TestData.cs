@@ -7,7 +7,7 @@ namespace Drone.Management.AdHoc.TestData
 {
     public class TestData : ITestData
     {
-        public IList<Tuple<IDrone>> DataSets { get; } = new List<Tuple<IDrone>>();
+        public IList<Tuple<IDrone, IDroneStatus>> DataSets { get; } = new List<Tuple<IDrone, IDroneStatus>>();
 
         public void GenerateDataSets(long nDatas)
         {
@@ -19,10 +19,11 @@ namespace Drone.Management.AdHoc.TestData
             }
         }
 
-        private static Tuple<IDrone> GenerateDataSet(string tag)
+        private static Tuple<IDrone, IDroneStatus> GenerateDataSet(string tag)
         {
             var drone = GetDrone(tag);
-            var dataSet = new Tuple<IDrone>(drone);
+            var droneStatus = GetDroneStatus(tag, drone);
+            var dataSet = new Tuple<IDrone, IDroneStatus>(drone, droneStatus);
             return dataSet;
         }
 
@@ -33,6 +34,14 @@ namespace Drone.Management.AdHoc.TestData
             var owner = $"Drone owner {tag}";
             var drone = Entities.Drone.CreateDrone(tag, owner);
             return drone;
+        }
+
+        private static IDroneStatus GetDroneStatus(string tag, IIdentity droneId)
+        {
+            var timestamp = DateTime.Now.ToString(CultureInfo.InvariantCulture);
+            var status = $"Drone status {tag} - {timestamp}";
+            var droneStatus = Entities.DroneStatus.CreateDroneStatus(status, true, droneId.Id);
+            return droneStatus;
         }
     }
 }

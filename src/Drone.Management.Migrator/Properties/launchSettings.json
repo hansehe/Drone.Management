@@ -3,9 +3,11 @@
     "Lab.TrackAndTrace.Migrator": {
       "commandName": "Project",
       "environmentVariables": {
+        "DELETE_MIGRATED_TEST_DATA": "TRUE",
         "WAIT_BEFORE_CLOSE": "TRUE",
         "VERIFY_MIGRATED_TEST_DATA": "TRUE",
         "MIGRATE_TEST_DATA": "TRUE",
+        "DEFAULT_SETTINGS": "POSTGRESQL_LOCALHOST",
         "N_TEST_DATAS": "100"
       }
     }

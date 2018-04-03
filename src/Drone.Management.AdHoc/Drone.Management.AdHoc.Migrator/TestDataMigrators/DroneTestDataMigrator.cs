@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Drone.Management.AdHoc.TestData;
+using Drone.Management.Entities.Interfaces;
 using Drone.Management.Migrator.Interfaces;
 using Drone.Management.Repository.Interfaces;
 using Drone.Management.Repository.Interfaces.RepositoryValues;
@@ -33,23 +34,22 @@ namespace Drone.Management.AdHoc.Migrator.TestDataMigrators
         public async Task VerifyMigratedTestData()
         {
             Console.WriteLine("\r\nExecuting DRONE test data verification\r\n");
-            var droneIds = await DroneRepositoryField.ReadDroneIds();
-            Console.WriteLine($"Found {droneIds.Count()} drone ids");
+            await ReadDroneIds();
             foreach (var dataSet in TestDataField.DataSets)
             {
                 var drone = dataSet.Item1;
-                var stopWatch = Stopwatch.StartNew();
-                var cpDrone = await DroneRepositoryField.ReadDrone(drone);
-                stopWatch.Stop();
-                if (cpDrone.Id.CompareTo(drone.Id) != 0)
-                {
-                    throw new Exception("Drone read from DB does not match created drone!");
-                }
-                Console.WriteLine($"Read drone {cpDrone.Tag} in {stopWatch.ElapsedMilliseconds} ms");
-                drone.Tag = $"Updated {drone.Tag}";
-                await DroneRepositoryField.UpdateDrone(drone);
+                await VerifyDrone(drone);
+            }
+            await ReadDroneIds();
+        }
+
+        public async Task DeleteMigratedTestData()
+        {
+            Console.WriteLine($"Deleting {TestDataField.DataSets.Count} drones");
+            foreach (var dataSet in TestDataField.DataSets)
+            {
+                var drone = dataSet.Item1;
                 await DroneRepositoryField.DeleteDrone(drone);
-                await DroneRepositoryField.CreateDrone(drone);
             }
         }
 
@@ -71,6 +71,26 @@ namespace Drone.Management.AdHoc.Migrator.TestDataMigrators
         {
             DroneRepositoryField = RepositoryBuilderField.BuildDroneRepository(settings);
             return this;
+        }
+
+        public async Task ReadDroneIds()
+        {
+            var droneIds = await DroneRepositoryField.ReadDroneIds();
+            Console.WriteLine($"Found {droneIds.Count()} drone ids");
+        }
+
+        public async Task VerifyDrone(IDrone drone)
+        {
+            var stopWatch = Stopwatch.StartNew();
+            var cpDrone = await DroneRepositoryField.ReadDrone(drone);
+            stopWatch.Stop();
+            if (cpDrone.Id.CompareTo(drone.Id) != 0)
+            {
+                throw new Exception("Drone read from DB does not match created drone!");
+            }
+            Console.WriteLine($"Read drone {cpDrone.Tag} in {stopWatch.ElapsedMilliseconds} ms");
+            drone.Tag = $"Updated {drone.Tag}";
+            await DroneRepositoryField.UpdateDrone(drone);
         }
     }
 }

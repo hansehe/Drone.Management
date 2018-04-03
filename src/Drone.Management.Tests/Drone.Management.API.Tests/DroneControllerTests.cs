@@ -38,11 +38,11 @@ namespace Drone.Management.API.Tests
             return drone;
         }
 
-        public IDroneBusiness GetEventBusiness()
+        public IDroneBusiness GetDroneBusiness()
         {
-            var eventBusiness = new Mock<IDroneBusiness>();
-            eventBusiness.Setup(x => x.GetDrone(It.IsAny<IIdentity>())).ReturnsAsync(GetDrone());
-            return eventBusiness.Object;
+            var droneBusiness = new Mock<IDroneBusiness>();
+            droneBusiness.Setup(x => x.GetDrone(It.IsAny<IIdentity>())).ReturnsAsync(GetDrone());
+            return droneBusiness.Object;
         }
 
         public ActionContext GetActionContext()
@@ -52,9 +52,9 @@ namespace Drone.Management.API.Tests
 
         public DroneController GetDroneController()
         {
-            var eventBusiness = GetEventBusiness();
-            var eventController = new DroneController(eventBusiness);
-            return eventController;
+            var droneBusiness = GetDroneBusiness();
+            var droneController = new DroneController(droneBusiness);
+            return droneController;
         }
 
         [Fact]
@@ -62,8 +62,7 @@ namespace Drone.Management.API.Tests
         {
             var eventController = GetDroneController();
             var actionResult = await eventController.CreateDrone(GetDroneDto());
-            var okObjectResult = actionResult.Should().BeOfType<OkObjectResult>().Subject;
-            var result = okObjectResult.Value.Should().BeAssignableTo<DroneDto>().Subject;
+            actionResult.Should().BeOfType<CreatedAtRouteResult>();
         }
 
         [Fact]
@@ -72,7 +71,7 @@ namespace Drone.Management.API.Tests
             var eventController = GetDroneController();
             var actionResult = await eventController.GetDroneIds();
             var okObjectResult = actionResult.Should().BeOfType<OkObjectResult>().Subject;
-            var result = okObjectResult.Value.Should().BeAssignableTo<IEnumerable<IdentityDto>>().Subject;
+            okObjectResult.Value.Should().BeAssignableTo<IEnumerable<IdentityDto>>();
         }
 
         [Fact]
@@ -81,7 +80,7 @@ namespace Drone.Management.API.Tests
             var eventController = GetDroneController();
             var actionResult = await eventController.GetDrone(Guid.NewGuid().ToString());
             var okObjectResult = actionResult.Should().BeOfType<OkObjectResult>().Subject;
-            var result = okObjectResult.Value.Should().BeAssignableTo<DroneDto>().Subject;
+            okObjectResult.Value.Should().BeAssignableTo<DroneDto>();
         }
         
         [Fact]
@@ -89,8 +88,7 @@ namespace Drone.Management.API.Tests
         {
             var eventController = GetDroneController();
             var actionResult = await eventController.UpdateDrone(GetDroneDto());
-            var okObjectResult = actionResult.Should().BeOfType<OkObjectResult>().Subject;
-            var result = okObjectResult.Value.Should().BeAssignableTo<DroneDto>().Subject;
+            actionResult.Should().BeOfType<AcceptedAtRouteResult>();
         }
 
         [Fact]
@@ -99,7 +97,7 @@ namespace Drone.Management.API.Tests
             var eventController = GetDroneController();
             var actionResult = await eventController.DeleteDrone(Guid.NewGuid().ToString());
             var okObjectResult = actionResult.Should().BeOfType<OkObjectResult>().Subject;
-            var result = okObjectResult.Value.Should().BeAssignableTo<string>().Subject;
+            okObjectResult.Value.Should().BeAssignableTo<IdentityDto>();
         }
     }
 }

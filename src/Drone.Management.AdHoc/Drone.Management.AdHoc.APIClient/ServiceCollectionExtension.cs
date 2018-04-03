@@ -10,6 +10,7 @@ namespace Drone.Management.AdHoc.APIClient
             services.AddScoped<IHttpClientWrapper, HttpClientWrapper>();
             services.AddScoped<IBusinessClient, BusinessClient>();
             services.AddScoped<IDroneBusinessClient, DroneBusinessClient>();
+            services.AddScoped<IDroneStatusBusinessClient, DroneStatusBusinessClient>();
         }
     }
 }

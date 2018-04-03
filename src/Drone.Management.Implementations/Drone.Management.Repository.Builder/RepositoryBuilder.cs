@@ -9,11 +9,14 @@ namespace Drone.Management.Repository.Builder
     public class RepositoryBuilder : IRepositoryBuilder
     {
         private readonly IEnumerable<IDroneRepository> DroneRepositoriesField;
+        private readonly IEnumerable<IStatusRepository> StatusRepositoriesField;
 
         public RepositoryBuilder(
-            IEnumerable<IDroneRepository> droneRepositories)
+            IEnumerable<IDroneRepository> droneRepositories,
+            IEnumerable<IStatusRepository> statusRepositories)
         {
             DroneRepositoriesField = droneRepositories;
+            StatusRepositoriesField = statusRepositories;
         }
 
         public IDroneRepository BuildDroneRepository(ISettings settings)
@@ -26,8 +29,20 @@ namespace Drone.Management.Repository.Builder
                     return droneRepositoryResolver;
                 }
             }
+            throw new Exception("Cannot resolve drone repository!");
+        }
 
-            throw new Exception("Cannot resolve event repository!");
+        public IStatusRepository BuildStatusRepository(ISettings settings)
+        {
+            foreach (var statusRepositoryResolver in StatusRepositoriesField)
+            {
+                if (statusRepositoryResolver.CanUseRepository(settings))
+                {
+                    statusRepositoryResolver.SetupRepository(settings);
+                    return statusRepositoryResolver;
+                }
+            }
+            throw new Exception("Cannot resolve status repository!");
         }
     }
 }
