@@ -22,7 +22,7 @@ namespace Drone.Management.Migrator
             try
             {
                 await Startup.ExecuteMigration(serviceProvider);
-                Console.WriteLine("Migration finished with success.");
+                Console.WriteLine("\r\nMigration finished with success.\r\n");
             }
             catch (Exception e)
             {

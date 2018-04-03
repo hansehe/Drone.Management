@@ -41,7 +41,7 @@ namespace Drone.Management.AdHoc.APIClientConsole
             try
             {
                 await apiClientManager.ExecuteAPIClients(numberOfTestDatas, baseAddress);
-                Console.WriteLine("Integration test with API Client finished with success.");
+                Console.WriteLine("\r\nIntegration test with API Client finished with success.\r\n");
             }
             catch (Exception e)
             {
