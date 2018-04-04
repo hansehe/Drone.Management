@@ -2,7 +2,7 @@
 using Drone.Management.Entities;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Drone.Management.AdHoc.APIClientConsole
+namespace Drone.Management.AdHoc.Console
 {
     internal static class Startup
     {
@@ -16,9 +16,10 @@ namespace Drone.Management.AdHoc.APIClientConsole
 
         private static IServiceProvider ConfigureAndBuildServices(IServiceCollection services)
         {
+            Factory.ServiceCollectionFactory.AddMigratorServiceCollection(services);
+            Migrator.ServiceCollectionExtension.AddAdHocMigratorServices(services);
             APIClient.ServiceCollectionExtension.AddAdHocAPIClientServices(services);
             TestData.ServiceCollectionExtension.AddAdHocTestDataServices(services);
-            ServiceCollectionExtension.AddAdHocAPIClientConsoleServices(services);
             var serviceProvider = services.BuildServiceProvider();
             return serviceProvider;
         }

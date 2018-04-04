@@ -46,6 +46,7 @@ services:
       dockerfile: Drone.Management.Migrator/Dockerfile
     environment:
       SETTINGS: ${SETTINGS}
+      MS_START_DELAY: "1500"
     depends_on:
       - drone-management-db
     networks:

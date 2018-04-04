@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Drone.Management.Implementations\Drone.Management.Entities\Drone.Management.Entities.csproj" />
+    <ProjectReference Include="..\Drone.Management.AdHoc.TestData\Drone.Management.AdHoc.TestData.csproj" />
   </ItemGroup>
 
 </Project>

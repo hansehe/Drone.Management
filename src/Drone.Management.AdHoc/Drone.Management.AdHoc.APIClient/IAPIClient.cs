@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using Drone.Management.AdHoc.TestData;
 
-namespace Drone.Management.AdHoc.APIClientConsole
+namespace Drone.Management.AdHoc.APIClient
 {
-    internal interface IAPIClient
+    public interface IAPIClient
     {
         int Queue { get; }
 

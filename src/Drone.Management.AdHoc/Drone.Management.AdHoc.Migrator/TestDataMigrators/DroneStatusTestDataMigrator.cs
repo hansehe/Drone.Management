@@ -49,7 +49,7 @@ namespace Drone.Management.AdHoc.Migrator.TestDataMigrators
 
         public async Task Migrate()
         {
-            Console.WriteLine($"Creating {TestDataField.DataSets.Count} drones");
+            Console.WriteLine($"Creating {TestDataField.DataSets.Count} drone statuses");
             foreach (var dataSet in TestDataField.DataSets)
             {
                 var droneStatus = dataSet.Item2;

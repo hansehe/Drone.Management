@@ -19,10 +19,10 @@ namespace Drone.Management.AdHoc.Tests
         public static ITestData GetTestData()
         {
             var nDatas = 10;
-            var testDatas = new List<Tuple<IDrone>>();
+            var testDatas = new List<Tuple<IDrone, IDroneStatus>>();
             for (var i = 0; i < nDatas; i++)
             {
-                var data = new Tuple<IDrone>(new Mock<IDrone>().Object);
+                var data = new Tuple<IDrone, IDroneStatus>(new Mock<IDrone>().Object, new Mock<IDroneStatus>().Object);
                 testDatas.Append(data);
             }
             var testData = new Mock<ITestData>();

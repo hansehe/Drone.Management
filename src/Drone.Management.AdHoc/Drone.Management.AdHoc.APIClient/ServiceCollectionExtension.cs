@@ -1,4 +1,5 @@
-﻿using Drone.Management.AdHoc.APIClient.BusinessClients;
+﻿using Drone.Management.AdHoc.APIClient.APIClients;
+using Drone.Management.AdHoc.APIClient.BusinessClients;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Drone.Management.AdHoc.APIClient
@@ -11,6 +12,9 @@ namespace Drone.Management.AdHoc.APIClient
             services.AddScoped<IBusinessClient, BusinessClient>();
             services.AddScoped<IDroneBusinessClient, DroneBusinessClient>();
             services.AddScoped<IDroneStatusBusinessClient, DroneStatusBusinessClient>();
+            services.AddScoped<IAPIClientManager, APIClientManager>();
+            services.AddScoped<IAPIClient, DroneAPIClient>();
+            services.AddScoped<IAPIClient, DroneStatusAPIClient>();
         }
     }
 }

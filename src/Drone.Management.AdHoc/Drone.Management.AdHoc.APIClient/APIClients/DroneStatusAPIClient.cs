@@ -5,9 +5,9 @@ using Drone.Management.AdHoc.APIClient.BusinessClients;
 using Drone.Management.AdHoc.TestData;
 using Drone.Management.Entities.Interfaces;
 
-namespace Drone.Management.AdHoc.APIClientConsole.APIClients
+namespace Drone.Management.AdHoc.APIClient.APIClients
 {
-    internal class DroneStatusAPIClient : IAPIClient
+    public class DroneStatusAPIClient : IAPIClient
     {
         private readonly IDroneStatusBusinessClient DroneStatusBusinessClientField;
 
@@ -31,9 +31,9 @@ namespace Drone.Management.AdHoc.APIClientConsole.APIClients
             {
                 var drone = dataSet.Item1;
                 var droneStatus = dataSet.Item2;
-                await ExecuteGetStatusDroneIds(droneStatusBusinessClient, drone);
                 await ExecuteCreateDroneStatus(droneStatusBusinessClient, droneStatus);
                 await ExecuteGetDroneStatus(droneStatusBusinessClient, droneStatus);
+                await ExecuteGetStatusDroneIds(droneStatusBusinessClient, drone);
                 Console.WriteLine($"Created and read drone status with tag: {droneStatus.Status}");
             }
         }

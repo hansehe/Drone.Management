@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Drone.Management.AdHoc.APIClientConsole
+namespace Drone.Management.AdHoc.APIClient
 {
-    internal interface IAPIClientManager
+    public interface IAPIClientManager
     {
         Task ExecuteAPIClients(long numberOfTestDatas, Uri baseAddress);
     }

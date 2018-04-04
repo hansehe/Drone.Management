@@ -17,14 +17,13 @@ services:
       VERIFY_MIGRATED_TEST_DATA: "TRUE"
       DELETE_MIGRATED_TEST_DATA: "FALSE"
 
-  drone-management-adhoc-apiclientconsole:
-    image: ${REPO}drone.management.adhoc.apiclientconsole
+  drone-management-adhoc-console:
+    image: ${REPO}drone.management.adhoc.console
     build:
       context: .
-      dockerfile: Drone.Management.AdHoc/Drone.Management.AdHoc.APIClientConsole/Dockerfile
+      dockerfile: Drone.Management.AdHoc/Drone.Management.AdHoc.Console/Dockerfile
     environment:
       SETTINGS: ${SETTINGS}
-      START_API_CLIENT: "TRUE"
       API_BASE_ADDRESS: http://drone-management-api:80/
       N_TEST_DATAS: "5"
       WAIT_BEFORE_CLOSE: "FALSE"

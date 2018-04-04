@@ -90,9 +90,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drone.Management.Business.T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drone.Management.AdHoc.Migrator", "Drone.Management.AdHoc\Drone.Management.AdHoc.Migrator\Drone.Management.AdHoc.Migrator.csproj", "{10C3E56A-7CAB-48B5-999A-842A275262E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drone.Management.AdHoc.APIClientConsole", "Drone.Management.AdHoc\Drone.Management.AdHoc.APIClientConsole\Drone.Management.AdHoc.APIClientConsole.csproj", "{73E894E3-52A4-420A-803A-578BE61F689C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drone.Management.AdHoc.APIClient", "Drone.Management.AdHoc\Drone.Management.AdHoc.APIClient\Drone.Management.AdHoc.APIClient.csproj", "{BE4CBC16-F85B-4544-8A39-4FAB55CECE6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drone.Management.AdHoc.APIClient", "Drone.Management.AdHoc\Drone.Management.AdHoc.APIClient\Drone.Management.AdHoc.APIClient.csproj", "{BE4CBC16-F85B-4544-8A39-4FAB55CECE6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drone.Management.AdHoc.Console", "Drone.Management.AdHoc\Drone.Management.AdHoc.Console\Drone.Management.AdHoc.Console.csproj", "{755D1325-2C1D-465E-8495-C37BA4E3FF17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -220,14 +220,14 @@ Global
 		{10C3E56A-7CAB-48B5-999A-842A275262E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10C3E56A-7CAB-48B5-999A-842A275262E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10C3E56A-7CAB-48B5-999A-842A275262E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73E894E3-52A4-420A-803A-578BE61F689C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73E894E3-52A4-420A-803A-578BE61F689C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73E894E3-52A4-420A-803A-578BE61F689C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73E894E3-52A4-420A-803A-578BE61F689C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BE4CBC16-F85B-4544-8A39-4FAB55CECE6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BE4CBC16-F85B-4544-8A39-4FAB55CECE6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE4CBC16-F85B-4544-8A39-4FAB55CECE6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE4CBC16-F85B-4544-8A39-4FAB55CECE6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{755D1325-2C1D-465E-8495-C37BA4E3FF17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{755D1325-2C1D-465E-8495-C37BA4E3FF17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{755D1325-2C1D-465E-8495-C37BA4E3FF17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{755D1325-2C1D-465E-8495-C37BA4E3FF17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -263,8 +263,8 @@ Global
 		{42C6C47A-3641-42A0-BC48-968B04E4BC5B} = {4506347B-7CA9-4AB8-9B0B-0D4DF99CEAC8}
 		{CC4A90E5-95C8-4253-A086-6A77529F430C} = {4506347B-7CA9-4AB8-9B0B-0D4DF99CEAC8}
 		{10C3E56A-7CAB-48B5-999A-842A275262E1} = {3A76A174-DF2A-460F-B135-937E5DBF1204}
-		{73E894E3-52A4-420A-803A-578BE61F689C} = {3A76A174-DF2A-460F-B135-937E5DBF1204}
 		{BE4CBC16-F85B-4544-8A39-4FAB55CECE6E} = {3A76A174-DF2A-460F-B135-937E5DBF1204}
+		{755D1325-2C1D-465E-8495-C37BA4E3FF17} = {3A76A174-DF2A-460F-B135-937E5DBF1204}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A9AF367F-A50C-43C7-BF76-9DF9D59ABFD2}
