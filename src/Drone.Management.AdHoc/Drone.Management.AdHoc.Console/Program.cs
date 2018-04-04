@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Drone.Management.Config;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Drone.Management.Migrator
+namespace Drone.Management.AdHoc.Console
 {
     class Program
     {
@@ -17,25 +16,18 @@ namespace Drone.Management.Migrator
             }
             using (var scope = serviceProvider.CreateScope())
             {
-                ExecuteMigrationAsync(scope.ServiceProvider).GetAwaiter().GetResult();
+                TestDataMigrator.ExecuteTestDataMigrationAsync(scope.ServiceProvider).GetAwaiter().GetResult();
+                System.Console.WriteLine("\r\nTest data migrated with success.\r\n");
             }
-        }
-
-        public static async Task ExecuteMigrationAsync(IServiceProvider serviceProvider)
-        {
-            try
+            using (var scope = serviceProvider.CreateScope())
             {
-                await Startup.ExecuteMigration(serviceProvider);
-                Console.WriteLine("\r\nMigration finished with success.\r\n");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
+                APIClientExecutor.ExecuteAPIClientsAsync(scope.ServiceProvider).GetAwaiter().GetResult();
+                System.Console.WriteLine("\r\nIntegration test with API Client finished with success.\r\n");
             }
             if (Environment.GetEnvironmentVariable("WAIT_BEFORE_CLOSE") == "TRUE")
             {
-                Console.WriteLine("Hit enter to exit..");
-                Console.ReadLine();
+                System.Console.WriteLine("Hit enter to exit..");
+                System.Console.ReadLine();
             }
         }
     }

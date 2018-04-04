@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Drone.Management.AdHoc.Console": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "MS_START_DELAY": "3000",
+        "DELETE_MIGRATED_TEST_DATA": "FALSE",
+        "VERIFY_MIGRATED_TEST_DATA": "TRUE",
+        "DEFAULT_SETTINGS": "POSTGRESQL_LOCALHOST",
+        "N_TEST_DATAS": "5"
+      }
+    }
+  }
+}

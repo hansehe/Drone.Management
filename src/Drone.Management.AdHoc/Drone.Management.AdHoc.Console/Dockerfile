@@ -7,7 +7,7 @@ FROM microsoft/dotnet:2.0-sdk AS build
 WORKDIR /src
 COPY . .
 
-WORKDIR /src/Drone.Management.AdHoc/Drone.Management.AdHoc.APIClientConsole
+WORKDIR /src/Drone.Management.AdHoc/Drone.Management.AdHoc.Console
 RUN dotnet restore -nowarn:msb3202,nu1503
 RUN dotnet build -c Release -o /app
 
@@ -18,4 +18,4 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
 COPY DroneManagementSettings.xml .
-ENTRYPOINT ["dotnet", "Drone.Management.AdHoc.APIClientConsole.dll"]
+ENTRYPOINT ["dotnet", "Drone.Management.AdHoc.Console.dll"]

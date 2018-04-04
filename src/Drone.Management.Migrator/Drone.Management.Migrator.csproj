@@ -19,8 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Drone.Management.AdHoc\Drone.Management.AdHoc.Migrator\Drone.Management.AdHoc.Migrator.csproj" />
-    <ProjectReference Include="..\Drone.Management.AdHoc\Drone.Management.AdHoc.TestData\Drone.Management.AdHoc.TestData.csproj" />
     <ProjectReference Include="..\Drone.Management.Implementations\Drone.Management.Config\Drone.Management.Config.csproj" />
     <ProjectReference Include="..\Drone.Management.Implementations\Drone.Management.Factory\Drone.Management.Factory.csproj" />
   </ItemGroup>

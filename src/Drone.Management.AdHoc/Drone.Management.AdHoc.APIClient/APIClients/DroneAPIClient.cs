@@ -5,9 +5,9 @@ using Drone.Management.AdHoc.APIClient.BusinessClients;
 using Drone.Management.AdHoc.TestData;
 using Drone.Management.Entities.Interfaces;
 
-namespace Drone.Management.AdHoc.APIClientConsole.APIClients
+namespace Drone.Management.AdHoc.APIClient.APIClients
 {
-    internal class DroneAPIClient : IAPIClient
+    public class DroneAPIClient : IAPIClient
     {
         private readonly IDroneBusinessClient DroneBusinessClientField;
 

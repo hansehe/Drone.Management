@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Drone.Management.Migrator\Drone.Management.Migrator.csproj" />
+    <ProjectReference Include="..\Drone.Management.AdHoc.APIClient\Drone.Management.AdHoc.APIClient.csproj" />
+    <ProjectReference Include="..\Drone.Management.AdHoc.Migrator\Drone.Management.AdHoc.Migrator.csproj" />
+    <ProjectReference Include="..\Drone.Management.AdHoc.TestData\Drone.Management.AdHoc.TestData.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>

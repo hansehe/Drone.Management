@@ -5,18 +5,18 @@ using Drone.Management.Settings.Interfaces;
 
 namespace Drone.Management.Migrator
 {
-    internal static class SafeMigration
+    public static class SafeMigration
     {
         private const int MaxConnectionTries = 3;
         private const int MsSleepBetweenTries = 500;
 
-        internal static async Task ExecuteMigration(IMigratorBuilder migratorBuilder, ISettings settings)
+        public static async Task ExecuteMigration(IMigratorBuilder migratorBuilder, ISettings settings)
         {
             var migrator = await WaitForDBConnection(migratorBuilder, settings);
             await migrator.Migrate();
         }
 
-        internal static async Task<IMigrator> WaitForDBConnection(IMigratorBuilder migratorBuilder, ISettings settings, int connectTries = 0, int maxConnectionTries = MaxConnectionTries)
+        private static async Task<IMigrator> WaitForDBConnection(IMigratorBuilder migratorBuilder, ISettings settings, int connectTries = 0, int maxConnectionTries = MaxConnectionTries)
         {
             var migrator = await migratorBuilder.BuildMigrator(settings);
             try

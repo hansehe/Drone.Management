@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Drone.Management.AdHoc.TestData;
 
-namespace Drone.Management.AdHoc.APIClientConsole
+namespace Drone.Management.AdHoc.APIClient
 {
-    internal class APIClientManager : IAPIClientManager
+    public class APIClientManager : IAPIClientManager
     {
         private readonly IEnumerable<IAPIClient> SortedApiClientsField;
 
