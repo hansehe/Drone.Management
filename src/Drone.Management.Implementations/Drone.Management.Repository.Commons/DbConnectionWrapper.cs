@@ -49,5 +49,10 @@ namespace Drone.Management.Repository.Commons
             dbConnection.Open();
             return dbConnection;
         }
+
+        ~DbConnectionWrapper()
+        {
+            DbConnectionField?.Close();
+        }
     }
 }
