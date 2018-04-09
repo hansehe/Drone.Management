@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Dapper;
 
 namespace Drone.Management.Repository.Commons
 {
-    public interface IDbConnectionWrapper
+    public interface IDbConnectionWrapper : IDisposable
     {
         void SetupRepository(AvailableDbConnections dbConnection, IRepositoryCommands repositoryCommands);
 
