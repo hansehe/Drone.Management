@@ -23,7 +23,7 @@ namespace Drone.Management.AdHoc.APIClient.APIClients
             return ExecuteDroneAPIClient(DroneBusinessClientField, testData, baseAddress);
         }
 
-        internal static async Task ExecuteDroneAPIClient(IDroneBusinessClient droneBusinessClient, ITestData testData, Uri baseAddress)
+        private static async Task ExecuteDroneAPIClient(IDroneBusinessClient droneBusinessClient, ITestData testData, Uri baseAddress)
         {
             Console.WriteLine($"\r\nConnecting to DRONE API server on {baseAddress.AbsoluteUri} with port {baseAddress.Port}\r\n");
             droneBusinessClient.SetupHttpClient(baseAddress);
